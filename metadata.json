@@ -1,0 +1,5 @@
+{
+  "name": "DocuMind AI",
+  "description": "Analyze PDFs with Gemini 1.5 Pro. Multi-tier subscriptions for advanced document insights.",
+  "requestFramePermissions": []
+}

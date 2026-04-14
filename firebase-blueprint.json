@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profile and subscription data",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "tier": { "type": "string", "enum": ["free", "pro", "premium"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "tier"]
+    },
+    "analyses": {
+      "title": "Analysis",
+      "description": "PDF analysis results",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "fileName": { "type": "string" },
+        "question": { "type": "string" },
+        "answer": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "fileName", "question", "answer"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "User profile document"
+    },
+    "/users/{userId}/analyses/{analysisId}": {
+      "schema": "analyses",
+      "description": "History of PDF analyses for a user"
+    }
+  }
+}
